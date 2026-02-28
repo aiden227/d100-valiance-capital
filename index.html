@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valiance Capital | Targeted 15-25% Net Returns in Berkeley Student Housing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #3A3A3A;
+            background-color: #FFFFFF;
+        }
+
+        .bg-valiance-dark {
+            background-color: #1A2932;
+        }
+
+        .text-valiance-dark {
+            color: #1A2932;
+        }
+
+        .border-valiance-dark {
+            border-color: #1A2932;
+        }
+
+        .bg-valiance-gold {
+            background-color: #C8A951;
+        }
+
+        .text-valiance-gold {
+            color: #C8A951;
+        }
+
+        .border-valiance-gold {
+            border-color: #C8A951;
+        }
+
+        .bg-soft-gray {
+            background-color: #F5F5F5;
+        }
+
+        .text-body-gray {
+            color: #6B7280;
+        }
+
+        .btn-primary {
+            background-color: #C8A951;
+            color: #1A2932;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(110%);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: #1A2932;
+            color: #FFFFFF;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            filter: brightness(120%);
+            transform: translateY(-1px);
+        }
+
+        .card {
+            background: white;
+            border: 1px solid rgba(200, 169, 81, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(26, 41, 50, 0.06);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(26, 41, 50, 0.93) 0%, rgba(26, 41, 50, 0.88) 100%);
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .gold-underline {
+            border-bottom: 3px solid #C8A951;
+            padding-bottom: 2px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .stat-card {
+            position: relative;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(200, 169, 81, 0.3);
+        }
+
+        .stat-card:last-child::after {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .stat-card::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="images/logo_primary.svg" alt="Valiance Capital" class="h-9">
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#how-it-works" class="text-sm font-semibold text-valiance-dark hover:text-valiance-gold transition-colors">How It Works</a>
+                <a href="#case-studies" class="text-sm font-semibold text-valiance-dark hover:text-valiance-gold transition-colors">Track Record</a>
+                <a href="#testimonials" class="text-sm font-semibold text-valiance-dark hover:text-valiance-gold transition-colors">Investors</a>
+                <a href="#qualification-form" class="btn-primary px-6 py-2.5 rounded-lg text-sm uppercase tracking-wider">Schedule Call</a>
+            </div>
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2">
+                <svg class="w-6 h-6 text-valiance-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-4 pb-2 space-y-3 border-t border-gray-100 mt-3">
+            <a href="#how-it-works" class="block text-sm font-semibold text-valiance-dark py-2">How It Works</a>
+            <a href="#case-studies" class="block text-sm font-semibold text-valiance-dark py-2">Track Record</a>
+            <a href="#testimonials" class="block text-sm font-semibold text-valiance-dark py-2">Investors</a>
+            <a href="#qualification-form" class="block btn-primary text-center px-6 py-3 rounded-lg text-sm uppercase tracking-wider">Schedule Call</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero_site_image.jpg" alt="Valiance Capital Berkeley Student Housing" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-16 text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-valiance-gold/20 text-valiance-gold text-xs font-bold uppercase tracking-widest mb-6 border border-valiance-gold/30">
+                Accredited Investors Only
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-5xl mx-auto">
+                Earn Targeted 15-25% Net Returns in Berkeley Student Housing, Backed by 40 Projects With <span class="text-valiance-gold">Zero Realized Losses</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                Valiance Capital is the largest private student housing operator in Berkeley, CA, with $300M+ in assets, 225+ investors, and a 15-year track record of execution.
+            </p>
+
+            <!-- VSL Video Placeholder -->
+            <div class="max-w-4xl mx-auto mb-14">
+                <div class="aspect-video bg-black/40 rounded-2xl shadow-2xl overflow-hidden border-2 border-white/10 flex items-center justify-center group cursor-pointer">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-valiance-gold/20 border-2 border-valiance-gold/40 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 text-valiance-gold translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm font-bold tracking-widest uppercase text-white/80">Watch the Investor Overview</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qualification Form (Hero) -->
+            <div id="qualification-form" class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 text-left" style="color: #3A3A3A;">
+                    <div class="mb-6">
+                        <div class="flex justify-between text-xs font-bold uppercase tracking-widest mb-2">
+                            <span class="text-valiance-dark">Investor Qualification</span>
+                            <span id="step-indicator" class="text-valiance-gold">Step 1 of 5</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-gray-100 rounded-full">
+                            <div id="progress-bar" class="h-full bg-valiance-gold rounded-full transition-all duration-500" style="width: 20%"></div>
+                        </div>
+                    </div>
+
+                    <form id="multi-step-form">
+                        <!-- Step 1: Accreditation -->
+                        <div id="step-1" class="step-content active">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">Are you an accredited investor?</h3>
+                            <p class="text-body-gray mb-6 text-sm">Income $200K+ individual / $300K+ joint, or net worth $1M+ excluding primary residence.</p>
+                            <div class="space-y-3">
+                                <button type="button" onclick="goToStep(2)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all flex justify-between items-center group">
+                                    <span class="font-semibold text-valiance-dark">Yes</span>
+                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-valiance-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                                <button type="button" onclick="goToStep(2)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all flex justify-between items-center group">
+                                    <span class="font-semibold text-valiance-dark">No</span>
+                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-valiance-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                                <button type="button" onclick="goToStep(2)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all flex justify-between items-center group">
+                                    <span class="font-semibold text-valiance-dark">I am not sure</span>
+                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-valiance-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Investment Range -->
+                        <div id="step-2" class="step-content">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">What is your ideal investment range?</h3>
+                            <p class="text-body-gray mb-6 text-sm">This helps our team tailor the conversation to your situation.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button type="button" onclick="goToStep(3)" class="text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">$50K - $100K</button>
+                                <button type="button" onclick="goToStep(3)" class="text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">$100K - $250K</button>
+                                <button type="button" onclick="goToStep(3)" class="text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">$250K - $500K</button>
+                                <button type="button" onclick="goToStep(3)" class="text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">$500K+</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Timeline -->
+                        <div id="step-3" class="step-content">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">When are you looking to deploy capital?</h3>
+                            <p class="text-body-gray mb-6 text-sm">Knowing your timeline helps us match you with the right opportunity.</p>
+                            <div class="space-y-3">
+                                <button type="button" onclick="goToStep(4)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Immediately</button>
+                                <button type="button" onclick="goToStep(4)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Within 30 days</button>
+                                <button type="button" onclick="goToStep(4)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Within 90 days</button>
+                                <button type="button" onclick="goToStep(4)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Just exploring</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Investment Goal -->
+                        <div id="step-4" class="step-content">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">What is your primary investment goal?</h3>
+                            <p class="text-body-gray mb-6 text-sm">Select the outcome that matters most to you.</p>
+                            <div class="space-y-3">
+                                <button type="button" onclick="goToStep(5)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Passive income / cash flow</button>
+                                <button type="button" onclick="goToStep(5)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Long-term appreciation</button>
+                                <button type="button" onclick="goToStep(5)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Tax benefits</button>
+                                <button type="button" onclick="goToStep(5)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Portfolio diversification</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Contact Info -->
+                        <div id="step-5" class="step-content">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">You qualify. Let's connect.</h3>
+                            <p class="text-body-gray mb-6 text-sm">Enter your details below to schedule your investment strategy call.</p>
+                            <div class="space-y-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <input type="text" placeholder="First Name" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-valiance-gold focus:ring-1 focus:ring-valiance-gold">
+                                    <input type="text" placeholder="Last Name" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-valiance-gold focus:ring-1 focus:ring-valiance-gold">
+                                </div>
+                                <input type="email" placeholder="Email Address" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-valiance-gold focus:ring-1 focus:ring-valiance-gold">
+                                <input type="tel" placeholder="Phone Number" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-valiance-gold focus:ring-1 focus:ring-valiance-gold">
+                                <button type="submit" class="w-full btn-primary py-4 rounded-xl text-lg shadow-lg uppercase tracking-wider">Request Your Strategy Call</button>
+                            </div>
+                            <p class="mt-4 text-center text-xs text-body-gray">Your information is kept confidential and will never be shared.</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-6 flex items-center justify-center space-x-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-valiance-gold mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-xs text-gray-300">40 Projects, Zero Losses</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-valiance-gold mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-xs text-gray-300">225+ Active Investors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Proof Bar -->
+    <section class="py-10 sm:py-14 bg-valiance-dark border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-4 text-center">
+                <div class="stat-card px-3">
+                    <p class="text-2xl sm:text-3xl font-bold text-valiance-gold">$300M+</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold tracking-wider mt-1">Assets Under Management</p>
+                </div>
+                <div class="stat-card px-3">
+                    <p class="text-2xl sm:text-3xl font-bold text-white">40</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold tracking-wider mt-1">Completed Projects</p>
+                </div>
+                <div class="stat-card px-3">
+                    <p class="text-2xl sm:text-3xl font-bold text-valiance-gold">0</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold tracking-wider mt-1">Realized Losses</p>
+                </div>
+                <div class="stat-card px-3">
+                    <p class="text-2xl sm:text-3xl font-bold text-white">25.5%</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold tracking-wider mt-1">Avg Net Return*</p>
+                </div>
+                <div class="stat-card col-span-2 md:col-span-1 px-3">
+                    <p class="text-2xl sm:text-3xl font-bold text-valiance-gold">225+</p>
+                    <p class="text-xs text-gray-400 uppercase font-semibold tracking-wider mt-1">Active Investors</p>
+                </div>
+            </div>
+            <p class="text-center text-xs text-gray-500 mt-6">*Weighted average on realized investments. Past performance does not guarantee future results.</p>
+        </div>
+    </section>
+
+    <!-- Authority / Founder Section -->
+    <section class="py-20 sm:py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="relative">
+                <div class="absolute -top-8 -left-8 w-32 h-32 bg-valiance-gold/10 rounded-full"></div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                    <img src="images/property_exterior_1.jpg" alt="Valiance Capital Berkeley Property" class="w-full h-auto object-cover">
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-valiance-dark p-5 rounded-xl text-white shadow-xl max-w-[260px]">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <img src="images/california_bears_logo.png" alt="Cal Athletics" class="h-8 w-8 object-contain">
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-valiance-gold">Proud Sponsor</p>
+                            <p class="text-xs text-gray-300">Cal Athletics, UC Berkeley</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span class="text-xs font-bold text-valiance-gold uppercase tracking-widest mb-4 block">Our Founder</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-valiance-dark mb-6">Built by an Operator, Not a Fundraiser</h2>
+                <p class="text-body-gray mb-4 text-lg leading-relaxed">
+                    Nhan Nguyen Le founded Valiance Capital in 2010 with 2 rental units and a mission: give accredited investors access to the same quality of real estate investments that institutions have always controlled. 15 years later, the firm manages $300M+ in multifamily and student housing assets across 40 completed projects.
+                </p>
+                <p class="text-body-gray mb-6 text-lg leading-relaxed">
+                    Nhan grew up in poverty. He did not inherit connections or capital. Every dollar of growth came from execution, not leverage. That background shapes how Valiance operates: conservative underwriting, full vertical integration, and personal capital invested in every deal alongside investors.
+                </p>
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <div class="space-y-1">
+                        <p class="text-2xl font-bold text-valiance-dark">15+</p>
+                        <p class="text-xs text-body-gray uppercase font-bold tracking-wider">Years in Real Estate</p>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-2xl font-bold text-valiance-dark">600+</p>
+                        <p class="text-xs text-body-gray uppercase font-bold tracking-wider">Beds Near Campus</p>
+                    </div>
+                </div>
+                <div class="p-6 border-l-4 border-valiance-gold bg-amber-50/40 rounded-r-lg">
+                    <p class="italic text-valiance-dark text-lg">
+                        "I invest my own money in every deal. When you win, I win. When you lose, I lose. That alignment is non-negotiable."
+                    </p>
+                    <p class="text-sm font-semibold text-valiance-gold mt-3">Nhan Nguyen Le, CEO & Founder</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 sm:py-24 bg-soft-gray">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-xs font-bold text-valiance-gold uppercase tracking-widest mb-4 block">The Problem</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-valiance-dark mb-4">The Problem With Most Syndication Sponsors</h2>
+                <p class="text-body-gray max-w-2xl mx-auto text-lg">Most accredited investors looking for passive real estate deals end up in one of three traps.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Trap 1 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-valiance-dark mb-3">The Overpromiser</h3>
+                    <p class="text-body-gray leading-relaxed">Glossy pitch decks with aggressive IRR projections. No operational experience. No skin in the game. The deal closes, communication stops, and the returns never materialize.</p>
+                </div>
+
+                <!-- Trap 2 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-valiance-dark mb-3">The Outsourcer</h3>
+                    <p class="text-body-gray leading-relaxed">The sponsor buys the property but hands everything off to a third-party property manager. When something goes wrong, they have no control. You are left hoping the market bails out a deal nobody is actively managing.</p>
+                </div>
+
+                <!-- Trap 3 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-valiance-dark mb-3">The One-Hit Wonder</h3>
+                    <p class="text-body-gray leading-relaxed">A sponsor with one or two successful deals who is now raising for a $50 million fund. No track record through a downturn. No systems. No bench depth. Your capital is their experiment.</p>
+                </div>
+            </div>
+
+            <p class="text-center text-body-gray mt-10 text-lg">The result is the same: underperforming returns, zero transparency, and investors who swear off syndications entirely.</p>
+        </div>
+    </section>
+
+    <!-- Solution / How It Works Section -->
+    <section id="how-it-works" class="py-20 sm:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-xs font-bold text-valiance-gold uppercase tracking-widest mb-4 block">Our Model</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-valiance-dark mb-4">What Investing With a Real Operator Looks Like</h2>
+                <p class="text-body-gray max-w-2xl mx-auto text-lg">Valiance Capital is vertically integrated. We control every step of the investment lifecycle.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="relative bg-soft-gray p-6 rounded-xl border border-gray-100">
+                    <div class="w-10 h-10 bg-valiance-dark rounded-full flex items-center justify-center text-white font-bold text-sm mb-4">1</div>
+                    <h3 class="text-lg font-bold text-valiance-dark mb-2">Source & Acquire</h3>
+                    <p class="text-body-gray text-sm leading-relaxed">We use 15 years of Berkeley market expertise and off-market relationships to acquire properties below replacement cost. 40 acquisitions and counting.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative bg-soft-gray p-6 rounded-xl border border-gray-100">
+                    <div class="w-10 h-10 bg-valiance-dark rounded-full flex items-center justify-center text-white font-bold text-sm mb-4">2</div>
+                    <h3 class="text-lg font-bold text-valiance-dark mb-2">Design & Transform</h3>
+                    <p class="text-body-gray text-sm leading-relaxed">Our in-house design and construction teams execute complete renovations. Average result: 55% increase in property value within 24 months.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative bg-soft-gray p-6 rounded-xl border border-gray-100">
+                    <div class="w-10 h-10 bg-valiance-dark rounded-full flex items-center justify-center text-white font-bold text-sm mb-4">3</div>
+                    <h3 class="text-lg font-bold text-valiance-dark mb-2">Deploy Management</h3>
+                    <p class="text-body-gray text-sm leading-relaxed">We manage every property ourselves with hospitality-first operations. Near-100% occupancy. Highest rents per square foot in the submarket.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative bg-soft-gray p-6 rounded-xl border border-gray-100">
+                    <div class="w-10 h-10 bg-valiance-gold rounded-full flex items-center justify-center text-valiance-dark font-bold text-sm mb-4">4</div>
+                    <h3 class="text-lg font-bold text-valiance-dark mb-2">Return Capital</h3>
+                    <p class="text-body-gray text-sm leading-relaxed">We target 40-60% return of original investor equity within 24 months through forced appreciation, then continue to deliver returns through the hold period.</p>
+                </div>
+            </div>
+
+            <!-- Property Images Row -->
+            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                    <img src="images/project_the_polaris.png" alt="The Polaris" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                    <img src="images/project_the_valiant.png" alt="The Valiant" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                    <img src="images/project_the_hearst.png" alt="The Hearst" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+                    <img src="images/project_the_collegiate.png" alt="The Collegiate" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies / Results Section -->
+    <section id="case-studies" class="py-20 sm:py-24 bg-soft-gray">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-xs font-bold text-valiance-gold uppercase tracking-widest mb-4 block">Proven Results</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-valiance-dark mb-4">The Numbers Behind 40 Projects</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Case Study 1: The Polaris -->
+                <div class="card flex flex-col h-full overflow-hidden group">
+                    <div class="h-52 bg-gray-200 overflow-hidden">
+                        <img src="images/polaris_main_view.png" alt="The Polaris" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-7 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-valiance-dark">The Polaris</h3>
+                            <span class="bg-amber-50 text-valiance-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Case Study</span>
+                        </div>
+                        <p class="text-sm text-body-gray mb-5">28 units at 2701 Durant Ave, Berkeley. Renovation completed in 15 months through COVID, supply chain disruptions, and PG&E delays.</p>
+                        <div class="space-y-3 pt-4 border-t border-gray-100">
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Acquisition</span>
+                                <span class="text-base font-bold text-valiance-dark">$7,750,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">CAPEX</span>
+                                <span class="text-base font-bold text-valiance-dark">$7,000,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Projected IRR*</span>
+                                <span class="text-base font-bold text-valiance-gold">22.6%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Equity Multiple*</span>
+                                <span class="text-base font-bold text-valiance-gold">2.1x</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Occupancy</span>
+                                <span class="text-base font-bold text-green-600">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Portfolio Track Record -->
+                <div class="card flex flex-col h-full overflow-hidden group">
+                    <div class="h-52 bg-gray-200 overflow-hidden">
+                        <img src="images/property_exterior_2.jpg" alt="Valiance Capital Portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-7 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-valiance-dark">Portfolio Track Record</h3>
+                            <span class="bg-green-50 text-green-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Verified</span>
+                        </div>
+                        <p class="text-sm text-body-gray mb-5">Cumulative performance across all completed projects over 15 years of operations in the Berkeley market.</p>
+                        <div class="space-y-3 pt-4 border-t border-gray-100">
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Avg Net Return*</span>
+                                <span class="text-base font-bold text-valiance-gold">25.5%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Market Outperformance</span>
+                                <span class="text-base font-bold text-valiance-dark">17.5%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Investor Equity Deployed</span>
+                                <span class="text-base font-bold text-valiance-dark">$150M+</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Realized Losses</span>
+                                <span class="text-base font-bold text-green-600">Zero</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: Student Housing Market -->
+                <div class="card flex flex-col h-full overflow-hidden group">
+                    <div class="h-52 bg-gray-200 overflow-hidden">
+                        <img src="images/project_current_1.png" alt="Berkeley Student Housing Market" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-7 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-valiance-dark">Berkeley Market</h3>
+                            <span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Market Data</span>
+                        </div>
+                        <p class="text-sm text-body-gray mb-5">UC Berkeley's structural housing shortage creates a supply-constrained investment thesis that is not dependent on market cycles.</p>
+                        <div class="space-y-3 pt-4 border-t border-gray-100">
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">UC Berkeley Students</span>
+                                <span class="text-base font-bold text-valiance-dark">45,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">On-Campus Beds</span>
+                                <span class="text-base font-bold text-valiance-dark">~9,000 (20%)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Rent Growth (2012-2019)</span>
+                                <span class="text-base font-bold text-valiance-gold">55%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs font-bold text-body-gray uppercase">Valiance Position</span>
+                                <span class="text-base font-bold text-valiance-dark">600+ beds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-xs text-body-gray mt-8">*Past performance does not guarantee future results. Projected returns are targets, not guarantees. All investments carry risk, including loss of principal.</p>
+
+            <div class="mt-10 text-center">
+                <a href="#qualification-form" class="btn-primary inline-block px-10 py-4 rounded-xl font-bold text-base uppercase tracking-wider shadow-lg">Request Your Strategy Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-xs font-bold text-valiance-gold uppercase tracking-widest mb-4 block">Investor Stories</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-valiance-dark mb-4">What Our Investors Say</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-soft-gray p-8 rounded-xl border border-gray-100 shadow-sm relative">
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-valiance-dark rounded-full flex items-center justify-center text-valiance-gold text-2xl font-serif">"</div>
+                    <p class="text-body-gray mb-6 leading-relaxed italic">
+                        "We invested with Valiance Capital after years of looking for the right operator. The transparency, communication, and results have exceeded our expectations. We are now on our third deal with them."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                            <img src="images/testimonial_bante.jpg" alt="The Bante Family" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-valiance-dark">The Bante Family</p>
+                            <p class="text-xs text-body-gray uppercase tracking-wider">Valiance Capital Investors</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-soft-gray p-8 rounded-xl border border-gray-100 shadow-sm relative">
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-valiance-dark rounded-full flex items-center justify-center text-valiance-gold text-2xl font-serif">"</div>
+                    <p class="text-body-gray mb-6 leading-relaxed italic">
+                        "What sets Valiance apart is that they actually operate the assets. They are not just fundraisers. They are builders. That makes all the difference."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                            <img src="images/testimonial_reid.jpg" alt="Reid & Danielle" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-valiance-dark">Reid & Danielle</p>
+                            <p class="text-xs text-body-gray uppercase tracking-wider">Valiance Capital Investors</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-soft-gray p-8 rounded-xl border border-gray-100 shadow-sm relative">
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-valiance-dark rounded-full flex items-center justify-center text-valiance-gold text-2xl font-serif">"</div>
+                    <p class="text-body-gray mb-6 leading-relaxed italic">
+                        "The monthly updates and portal access give me full visibility into my investment. I never have to wonder what is happening with my money."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-valiance-dark/10 rounded-full flex items-center justify-center text-valiance-dark font-bold text-lg flex-shrink-0">AI</div>
+                        <div>
+                            <p class="font-bold text-valiance-dark">Active Investor</p>
+                            <p class="text-xs text-body-gray uppercase tracking-wider">Valiance Capital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-xs text-body-gray mt-8">Individual results may vary. Investors are not compensated for testimonials. These investors are current clients of Valiance Capital.</p>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="relative py-20 sm:py-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/property_exterior_2.jpg" alt="Valiance Capital Property" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Invest With an Operator You Can Trust?</h2>
+            <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                We have executed 40 deals with zero losses. We manage every asset under our own roof. We invest our own capital right alongside yours. If you are an accredited investor with capital to deploy, schedule your strategy call today.
+            </p>
+
+            <!-- Qualification Form (CTA Section) -->
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 text-left" style="color: #3A3A3A;">
+                    <div class="mb-6">
+                        <div class="flex justify-between text-xs font-bold uppercase tracking-widest mb-2">
+                            <span class="text-valiance-dark">Investor Qualification</span>
+                            <span id="step-indicator-2" class="text-valiance-gold">Step 1 of 5</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-gray-100 rounded-full">
+                            <div id="progress-bar-2" class="h-full bg-valiance-gold rounded-full transition-all duration-500" style="width: 20%"></div>
+                        </div>
+                    </div>
+
+                    <form id="multi-step-form-2">
+                        <!-- Step 1: Accreditation -->
+                        <div id="step-1-2" class="step-content active">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">Are you an accredited investor?</h3>
+                            <p class="text-body-gray mb-6 text-sm">Income $200K+ individual / $300K+ joint, or net worth $1M+ excluding primary residence.</p>
+                            <div class="space-y-3">
+                                <button type="button" onclick="goToStep2(2)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all flex justify-between items-center group">
+                                    <span class="font-semibold text-valiance-dark">Yes</span>
+                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-valiance-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                                <button type="button" onclick="goToStep2(2)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all flex justify-between items-center group">
+                                    <span class="font-semibold text-valiance-dark">No</span>
+                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-valiance-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                                <button type="button" onclick="goToStep2(2)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all flex justify-between items-center group">
+                                    <span class="font-semibold text-valiance-dark">I am not sure</span>
+                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-valiance-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Investment Range -->
+                        <div id="step-2-2" class="step-content">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">What is your ideal investment range?</h3>
+                            <p class="text-body-gray mb-6 text-sm">This helps our team tailor the conversation to your situation.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button type="button" onclick="goToStep2(3)" class="text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">$50K - $100K</button>
+                                <button type="button" onclick="goToStep2(3)" class="text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">$100K - $250K</button>
+                                <button type="button" onclick="goToStep2(3)" class="text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">$250K - $500K</button>
+                                <button type="button" onclick="goToStep2(3)" class="text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">$500K+</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Timeline -->
+                        <div id="step-3-2" class="step-content">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">When are you looking to deploy capital?</h3>
+                            <p class="text-body-gray mb-6 text-sm">Knowing your timeline helps us match you with the right opportunity.</p>
+                            <div class="space-y-3">
+                                <button type="button" onclick="goToStep2(4)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Immediately</button>
+                                <button type="button" onclick="goToStep2(4)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Within 30 days</button>
+                                <button type="button" onclick="goToStep2(4)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Within 90 days</button>
+                                <button type="button" onclick="goToStep2(4)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Just exploring</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Investment Goal -->
+                        <div id="step-4-2" class="step-content">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">What is your primary investment goal?</h3>
+                            <p class="text-body-gray mb-6 text-sm">Select the outcome that matters most to you.</p>
+                            <div class="space-y-3">
+                                <button type="button" onclick="goToStep2(5)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Passive income / cash flow</button>
+                                <button type="button" onclick="goToStep2(5)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Long-term appreciation</button>
+                                <button type="button" onclick="goToStep2(5)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Tax benefits</button>
+                                <button type="button" onclick="goToStep2(5)" class="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-valiance-gold hover:bg-amber-50/50 transition-all font-semibold text-valiance-dark">Portfolio diversification</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Contact Info -->
+                        <div id="step-5-2" class="step-content">
+                            <h3 class="text-xl sm:text-2xl font-bold text-valiance-dark mb-2">You qualify. Let's connect.</h3>
+                            <p class="text-body-gray mb-6 text-sm">Enter your details below to schedule your investment strategy call.</p>
+                            <div class="space-y-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <input type="text" placeholder="First Name" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-valiance-gold focus:ring-1 focus:ring-valiance-gold">
+                                    <input type="text" placeholder="Last Name" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-valiance-gold focus:ring-1 focus:ring-valiance-gold">
+                                </div>
+                                <input type="email" placeholder="Email Address" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-valiance-gold focus:ring-1 focus:ring-valiance-gold">
+                                <input type="tel" placeholder="Phone Number" class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-valiance-gold focus:ring-1 focus:ring-valiance-gold">
+                                <button type="submit" class="w-full btn-primary py-4 rounded-xl text-lg shadow-lg uppercase tracking-wider">Request Your Strategy Call</button>
+                            </div>
+                            <p class="mt-4 text-center text-xs text-body-gray">Your information is kept confidential and will never be shared.</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-6 flex items-center justify-center space-x-6">
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-valiance-gold mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-xs text-gray-300">40 Projects, Zero Losses</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-4 h-4 text-valiance-gold mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-xs text-gray-300">225+ Active Investors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 sm:py-24 bg-soft-gray">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-xs font-bold text-valiance-gold uppercase tracking-widest mb-4 block">Common Questions</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-valiance-dark mb-4">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-valiance-dark text-lg pr-4">What is the minimum investment?</span>
+                        <svg class="w-6 h-6 text-valiance-gold flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-body-gray leading-relaxed">The minimum varies by offering but is typically $50,000 to $100,000. Your Investor Success Team member will confirm the specific minimum on your strategy call.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-valiance-dark text-lg pr-4">How long is the typical hold period?</span>
+                        <svg class="w-6 h-6 text-valiance-gold flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-body-gray leading-relaxed">Most of our investments have a 3 to 5 year hold period, though we target returning 40-60% of investor equity within the first 24 months through forced appreciation and refinancing.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-valiance-dark text-lg pr-4">What kind of returns should I expect?</span>
+                        <svg class="w-6 h-6 text-valiance-gold flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-body-gray leading-relaxed">We target 15-25% net annualized returns, depending on the specific deal. Our historical average on disposed assets is 25.5% net annualized. Past performance does not guarantee future results.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-valiance-dark text-lg pr-4">Do I need to be an accredited investor?</span>
+                        <svg class="w-6 h-6 text-valiance-gold flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-body-gray leading-relaxed">Yes. Due to SEC regulations, our offerings are limited to accredited investors as defined by income ($200K+ individual / $300K+ joint) or net worth ($1M+ excluding primary residence).</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-valiance-dark text-lg pr-4">How is Valiance different from other syndication sponsors?</span>
+                        <svg class="w-6 h-6 text-valiance-gold flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-body-gray leading-relaxed">We are vertically integrated, meaning we control acquisitions, design, construction, and management under one roof. Our founder invests personal capital in every deal. And we have executed 40 projects with zero realized losses over 15 years.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-valiance-dark text-lg pr-4">What are the tax benefits?</span>
+                        <svg class="w-6 h-6 text-valiance-gold flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-body-gray leading-relaxed">Real estate investments offer significant depreciation benefits that can offset passive income and, through cost segregation, potentially active income. Our team will explain the specific tax implications of each offering on your strategy call.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-valiance-dark text-lg pr-4">Can I invest through my IRA or self-directed retirement account?</span>
+                        <svg class="w-6 h-6 text-valiance-gold flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-body-gray leading-relaxed">Yes. Many of our investors use self-directed IRAs or solo 401(k) accounts. We can connect you with custodians who facilitate these transactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-valiance-dark text-white py-16 sm:py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-10 mb-14">
+                <div class="col-span-2">
+                    <img src="images/logo_white.png" alt="Valiance Capital" class="h-10 mb-6">
+                    <p class="text-gray-400 max-w-sm mb-6 leading-relaxed">
+                        Valiance Capital is a private real estate investment firm specializing in value-add multifamily and student housing in Berkeley, California. $300M+ in assets under management. 40 completed projects. Zero realized losses.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/nhannguyenle" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-valiance-gold/30 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-widest text-sm text-valiance-gold">Navigation</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="https://valiancecap.com/current-offerings" target="_blank" class="hover:text-white transition-colors">Current Offerings</a></li>
+                        <li><a href="https://valiancecap.com/meet-the-team" target="_blank" class="hover:text-white transition-colors">Meet the Team</a></li>
+                        <li><a href="https://valiancecap.com/investor-education" target="_blank" class="hover:text-white transition-colors">Investor Education</a></li>
+                        <li><a href="#qualification-form" class="hover:text-white transition-colors">Schedule a Call</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-widest text-sm text-valiance-gold">Contact</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>investors@valiancecap.com</li>
+                        <li>(510) 564-1850</li>
+                        <li>2298 Durant Ave<br>Berkeley, CA 94704</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-xs text-gray-500">
+                <p class="mb-4 leading-relaxed max-w-4xl mx-auto">
+                    This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. Securities offerings are made only through private placement memoranda and related subscription documents. All investments carry risk, including loss of principal. Past performance is not indicative of future results. Only accredited investors may participate in our offerings.
+                </p>
+                <p>&copy; 2026 Valiance Capital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form 1 (Hero section) - 5 steps
+        function goToStep(step) {
+            document.querySelectorAll('#multi-step-form .step-content').forEach(function(s) { s.classList.remove('active'); });
+            document.getElementById('step-' + step).classList.add('active');
+            document.getElementById('step-indicator').innerText = 'Step ' + step + ' of 5';
+            var progress = (step / 5) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        }
+
+        // Form 2 (CTA section) - 5 steps
+        function goToStep2(step) {
+            document.querySelectorAll('#multi-step-form-2 .step-content').forEach(function(s) { s.classList.remove('active'); });
+            document.getElementById('step-' + step + '-2').classList.add('active');
+            document.getElementById('step-indicator-2').innerText = 'Step ' + step + ' of 5';
+            var progress = (step / 5) * 100;
+            document.getElementById('progress-bar-2').style.width = progress + '%';
+        }
+
+        // Form submissions
+        document.getElementById('multi-step-form').onsubmit = function(e) {
+            e.preventDefault();
+            window.location.href = '/thankyou';
+        };
+
+        document.getElementById('multi-step-form-2').onsubmit = function(e) {
+            e.preventDefault();
+            window.location.href = '/thankyou';
+        };
+
+        // FAQ accordion
+        function toggleFaq(button) {
+            var answer = button.nextElementSibling;
+            var icon = button.querySelector('svg');
+            answer.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Mobile menu close on link click
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

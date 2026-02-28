@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Received | Valiance Capital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #3A3A3A;
+            background-color: #FFFFFF;
+        }
+
+        .bg-valiance-dark {
+            background-color: #1A2932;
+        }
+
+        .text-valiance-dark {
+            color: #1A2932;
+        }
+
+        .border-valiance-dark {
+            border-color: #1A2932;
+        }
+
+        .bg-valiance-gold {
+            background-color: #C8A951;
+        }
+
+        .text-valiance-gold {
+            color: #C8A951;
+        }
+
+        .border-valiance-gold {
+            border-color: #C8A951;
+        }
+
+        .bg-soft-gray {
+            background-color: #F5F5F5;
+        }
+
+        .text-body-gray {
+            color: #6B7280;
+        }
+
+        .btn-primary {
+            background-color: #C8A951;
+            color: #1A2932;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(110%);
+            transform: translateY(-1px);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(26, 41, 50, 0.94) 0%, rgba(26, 41, 50, 0.90) 100%);
+        }
+
+        .video-placeholder {
+            background: linear-gradient(135deg, #0f1c24 0%, #1A2932 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(200, 169, 81, 0.04) 0%, transparent 70%);
+        }
+
+        .play-btn {
+            width: 72px;
+            height: 72px;
+            background: rgba(200, 169, 81, 0.2);
+            border: 2px solid rgba(200, 169, 81, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .play-btn:hover {
+            background: rgba(200, 169, 81, 0.35);
+            transform: scale(1.08);
+        }
+
+        .play-btn-sm {
+            width: 48px;
+            height: 48px;
+            background: rgba(200, 169, 81, 0.2);
+            border: 2px solid rgba(200, 169, 81, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .play-btn-sm:hover {
+            background: rgba(200, 169, 81, 0.35);
+            transform: scale(1.08);
+        }
+
+        .step-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #C8A951;
+            color: #1A2932;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .confetti-dot {
+            position: absolute;
+            border-radius: 2px;
+            opacity: 0;
+            animation: confettiFall 2.5s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translateY(-20px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(80px) rotate(360deg);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse-ring {
+            animation: pulseRing 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(200, 169, 81, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(200, 169, 81, 0);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="images/logo_primary.svg" alt="Valiance Capital" class="h-9">
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-sm font-semibold text-green-600">Application Received</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Confirmation Hero -->
+    <header class="relative text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero_site_image.jpg" alt="Valiance Capital" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <!-- Confetti dots (decorative) -->
+        <div class="absolute inset-0 z-5 pointer-events-none overflow-hidden" id="confetti-container"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 sm:pt-20 pb-16 text-center">
+            <!-- Success badge -->
+            <div class="inline-flex items-center space-x-2 bg-green-500/15 border border-green-400/30 rounded-full px-5 py-2 mb-8 fade-in">
+                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center pulse-ring">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <span class="text-sm font-bold text-green-300 uppercase tracking-widest">Application Received</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 fade-in" style="animation-delay: 0.1s;">
+                You Are In. Watch This Before Your Call.
+            </h1>
+            <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed fade-in" style="animation-delay: 0.2s;">
+                Your investment strategy call with Valiance Capital is confirmed. The video below will help you prepare and get the most out of your time with our team.
+            </p>
+
+            <!-- Thank You Video Placeholder -->
+            <div class="max-w-3xl mx-auto mb-14 fade-in" style="animation-delay: 0.3s;">
+                <div class="video-placeholder aspect-video rounded-2xl shadow-2xl border-2 border-white/10 flex items-center justify-center group cursor-pointer">
+                    <div class="text-center">
+                        <div class="play-btn mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8 text-valiance-gold translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-sm font-bold tracking-widest uppercase text-white/70">Watch Before Your Call</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What Happens Next Timeline -->
+            <div class="max-w-2xl mx-auto fade-in" style="animation-delay: 0.4s;">
+                <h3 class="text-lg font-bold text-valiance-gold uppercase tracking-widest mb-6">What Happens Next</h3>
+                <div class="space-y-4 text-left">
+                    <div class="flex items-start space-x-4 bg-white/5 rounded-xl p-4 border border-white/10">
+                        <div class="step-pill">1</div>
+                        <div>
+                            <p class="font-semibold text-white text-sm">Right now</p>
+                            <p class="text-gray-400 text-sm">Watch the video above and review the prep materials below</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 bg-white/5 rounded-xl p-4 border border-white/10">
+                        <div class="step-pill">2</div>
+                        <div>
+                            <p class="font-semibold text-white text-sm">Within 5 minutes</p>
+                            <p class="text-gray-400 text-sm">Confirmation email arrives with your call details</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 bg-white/5 rounded-xl p-4 border border-white/10">
+                        <div class="step-pill">3</div>
+                        <div>
+                            <p class="font-semibold text-white text-sm">Day 1-2</p>
+                            <p class="text-gray-400 text-sm">You will receive research emails with our track record and investment model</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 bg-white/5 rounded-xl p-4 border border-white/10">
+                        <div class="step-pill">4</div>
+                        <div>
+                            <p class="font-semibold text-white text-sm">24 hours before</p>
+                            <p class="text-gray-400 text-sm">Reminder email and SMS with your call link</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 bg-white/5 rounded-xl p-4 border border-white/10">
+                        <div class="step-pill">5</div>
+                        <div>
+                            <p class="font-semibold text-white text-sm">Call time</p>
+                            <p class="text-gray-400 text-sm">30-45 minute strategy session with our Investor Success Team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Prep Section -->
+    <section class="py-16 sm:py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-valiance-gold uppercase tracking-widest mb-4 block">Call Preparation</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-valiance-dark mb-3">How to Get the Most From Your Strategy Call</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-soft-gray p-8 rounded-xl border border-gray-100 text-center">
+                    <div class="w-14 h-14 bg-valiance-dark rounded-full flex items-center justify-center text-valiance-gold font-bold text-xl mx-auto mb-5">1</div>
+                    <h3 class="text-lg font-bold text-valiance-dark mb-3">Know Your Numbers</h3>
+                    <p class="text-body-gray leading-relaxed text-sm">Come prepared with your target investment amount and your timeline for deploying capital. This helps our team tailor the conversation to your specific situation.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-soft-gray p-8 rounded-xl border border-gray-100 text-center">
+                    <div class="w-14 h-14 bg-valiance-dark rounded-full flex items-center justify-center text-valiance-gold font-bold text-xl mx-auto mb-5">2</div>
+                    <h3 class="text-lg font-bold text-valiance-dark mb-3">Write Down Your Questions</h3>
+                    <p class="text-body-gray leading-relaxed text-sm">Whether it is about returns, tax benefits, hold period, risk profile, or our track record. Bring every question. There are no bad ones, and we would rather address them directly than have you leave with uncertainty.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-soft-gray p-8 rounded-xl border border-gray-100 text-center">
+                    <div class="w-14 h-14 bg-valiance-dark rounded-full flex items-center justify-center text-valiance-gold font-bold text-xl mx-auto mb-5">3</div>
+                    <h3 class="text-lg font-bold text-valiance-dark mb-3">Include Decision Makers</h3>
+                    <p class="text-body-gray leading-relaxed text-sm">If you make investment decisions with a partner or spouse, have them join the call or be available to review the details afterward. The best outcomes happen when all stakeholders are aligned.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For / Not For Section -->
+    <section class="py-16 sm:py-20 bg-soft-gray">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- For You -->
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-valiance-dark">This call is for you if:</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You are an accredited investor (income $200K+ individual or net worth $1M+ excluding primary residence)</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You have at least $50,000 available to invest</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You are comfortable with a 3 to 5 year hold period</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You prioritize track record and operator credibility over aggressive projections</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You are ready to make a decision within 30 to 90 days</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Not For You -->
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-valiance-dark">This call is not for you if:</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You are not an accredited investor</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You are looking for guaranteed returns with no risk</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You do not have capital available to deploy in the near term</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You are expecting liquid access to your investment at any time</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="text-body-gray text-sm">You are just browsing with no intention of taking action</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-center text-sm text-body-gray mt-8 italic">If any of the "not for you" criteria apply, please reschedule. This call will not be the right fit, and we would rather save both of our time.</p>
+        </div>
+    </section>
+
+    <!-- Breakout Videos Section -->
+    <section class="py-16 sm:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-valiance-gold uppercase tracking-widest mb-4 block">Pre-Call Research</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-valiance-dark mb-3">Prepare for Your Call: Watch These First</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Video 1 -->
+                <div class="bg-soft-gray rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="video-placeholder aspect-video flex items-center justify-center">
+                        <div class="play-btn-sm group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 text-valiance-gold translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <span class="inline-block text-[10px] font-bold text-valiance-gold uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-full mb-3">Process</span>
+                        <h4 class="font-bold text-valiance-dark mb-2">What Happens Next</h4>
+                        <p class="text-body-gray text-sm leading-relaxed">A quick walkthrough of what to expect between now and your strategy call, including what we will cover and how to prepare.</p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="bg-soft-gray rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="video-placeholder aspect-video flex items-center justify-center">
+                        <div class="play-btn-sm group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 text-valiance-gold translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <span class="inline-block text-[10px] font-bold text-valiance-gold uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-full mb-3">Qualification</span>
+                        <h4 class="font-bold text-valiance-dark mb-2">Who This Is For</h4>
+                        <p class="text-body-gray text-sm leading-relaxed">Straight talk about who this investment is designed for and who should sit this one out.</p>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="bg-soft-gray rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="video-placeholder aspect-video flex items-center justify-center">
+                        <div class="play-btn-sm group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 text-valiance-gold translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <span class="inline-block text-[10px] font-bold text-valiance-gold uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-full mb-3">Mechanism</span>
+                        <h4 class="font-bold text-valiance-dark mb-2">How Our Investment Model Works</h4>
+                        <p class="text-body-gray text-sm leading-relaxed">The 3-step process behind our 25.5% average net returns and zero realized losses across 40 projects.</p>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="bg-soft-gray rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="video-placeholder aspect-video flex items-center justify-center">
+                        <div class="play-btn-sm group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 text-valiance-gold translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <span class="inline-block text-[10px] font-bold text-valiance-gold uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-full mb-3">Trust</span>
+                        <h4 class="font-bold text-valiance-dark mb-2">Why 225 Investors Trust Us</h4>
+                        <p class="text-body-gray text-sm leading-relaxed">Addressing the most common concern from experienced passive investors: how to know a sponsor will actually deliver.</p>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="bg-soft-gray rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="video-placeholder aspect-video flex items-center justify-center">
+                        <div class="play-btn-sm group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 text-valiance-gold translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <span class="inline-block text-[10px] font-bold text-valiance-gold uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-full mb-3">Market Timing</span>
+                        <h4 class="font-bold text-valiance-dark mb-2">Why We Are Investing Now</h4>
+                        <p class="text-body-gray text-sm leading-relaxed">Why student housing in Berkeley remains one of the strongest investment theses in real estate, regardless of where the broader market goes.</p>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="bg-soft-gray rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                    <div class="video-placeholder aspect-video flex items-center justify-center">
+                        <div class="play-btn-sm group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 text-valiance-gold translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <span class="inline-block text-[10px] font-bold text-valiance-gold uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-full mb-3">Call Prep</span>
+                        <h4 class="font-bold text-valiance-dark mb-2">3 Things to Bring to Your Call</h4>
+                        <p class="text-body-gray text-sm leading-relaxed">A simple checklist so you show up prepared and get the most out of your 30 to 45 minutes with our team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-valiance-dark text-white py-16 sm:py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-10 mb-14">
+                <div class="col-span-2 md:col-span-1">
+                    <img src="images/logo_white.png" alt="Valiance Capital" class="h-10 mb-6">
+                    <p class="text-gray-400 max-w-sm mb-6 leading-relaxed text-sm">
+                        Valiance Capital is a private real estate investment firm specializing in value-add multifamily and student housing in Berkeley, California.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-widest text-sm text-valiance-gold">Contact</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>investors@valiancecap.com</li>
+                        <li>(510) 564-1850</li>
+                        <li>2298 Durant Ave<br>Berkeley, CA 94704</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-widest text-sm text-valiance-gold">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/nhannguyenle" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-valiance-gold/30 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-xs text-gray-500">
+                <p class="mb-4 leading-relaxed max-w-4xl mx-auto">
+                    This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. All investments carry risk, including loss of principal. Past performance is not indicative of future results. Only accredited investors may participate.
+                </p>
+                <p>&copy; 2026 Valiance Capital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Confetti animation on page load
+        (function() {
+            var container = document.getElementById('confetti-container');
+            var colors = ['#C8A951', '#1A2932', '#FFFFFF', '#C8A951', '#E8D5A0'];
+            for (var i = 0; i < 30; i++) {
+                var dot = document.createElement('div');
+                dot.className = 'confetti-dot';
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.top = Math.random() * 40 + '%';
+                dot.style.width = (Math.random() * 8 + 4) + 'px';
+                dot.style.height = (Math.random() * 8 + 4) + 'px';
+                dot.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                dot.style.animationDelay = (Math.random() * 1.5) + 's';
+                dot.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
+                container.appendChild(dot);
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
